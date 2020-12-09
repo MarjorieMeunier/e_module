@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Welcome</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<h1>Welcome</h1>
+<h2 th:text="${message}"></h2>
+
+sssssssssssssss
+<tr th:each ="chantier : ${chantiers}">
+    <td th:text="${chantier.nom_chantier}">...</td>
+    <td th:text="${chantier.date_chantier}">...</td>
+</tr>
+
+<a th:href="@{/listeChantier}">Liste des chantiers</a>
+
+</body>
+
+</html>
