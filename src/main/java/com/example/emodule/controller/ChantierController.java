@@ -18,9 +18,6 @@ public class ChantierController {
     private ChantierService chantierService;
 
 
-
-
-
     @RequestMapping( value = {"/"}, method = RequestMethod.GET )
     public String accueil(){
         return "accueil";

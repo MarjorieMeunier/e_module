@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 import java.util.logging.Logger;
 
 @Component
-public abstract class ChantierDAOImpl extends JdbcDaoSupport implements ChantierDAO {
+public abstract class ChantierDAOImpl implements ChantierDAO {
 
     public Chantier getByName(String name) {
 
