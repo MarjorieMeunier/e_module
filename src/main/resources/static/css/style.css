@@ -1,0 +1,11 @@
+.bouton-accueil {
+    border-left-width: 20px;
+    border-right-width: 20px
+}
+
+.text-gauche-accueil {
+    background-color: white;
+    border-style: solid;
+    border-color: #5e95ff;
+    border-radius: 20px;
+}
