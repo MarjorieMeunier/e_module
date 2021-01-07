@@ -19,7 +19,8 @@ public class ChantierService {
         return chantierDAO.findAll();
     }
 
+    /*
     public Chantier getByName(String name){
         return chantierDAO.findByName(name);
-    }
+    }*/
 }
