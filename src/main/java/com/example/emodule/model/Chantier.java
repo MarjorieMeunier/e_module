@@ -1,19 +1,18 @@
 package com.example.emodule.model;
 
-import org.springframework.context.annotation.Bean;
-
 import javax.persistence.*;
 
-
 import java.io.Serializable;
-import java.util.Date;
 
-@Entity
+
+
+//@Entity
 @Table(name="chantier")
 public class Chantier implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id_chantier", nullable=false)
     private Integer id_chantier;
 
     @Column(name="nom_chantier")
@@ -21,6 +20,22 @@ public class Chantier implements Serializable {
 
     @Column(name="date_chantier")
     private String date_chantier;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_utilisateur", referencedColumnName = "id_utilisateur")
+    private Utilisateur utilisateur;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_paiement", referencedColumnName = "id_paiement")
+    private Paiement paiement;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_etat", referencedColumnName = "id_etat")
+    private Etat etat;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_gamme", referencedColumnName = "id_gamme")
+    private Gamme gamme;
 
     public Chantier() {
     }
@@ -55,4 +70,35 @@ public class Chantier implements Serializable {
         this.date_chantier = date_chantier;
     }
 
+    public Utilisateur getUtilisateur() {
+        return utilisateur;
+    }
+
+    public void setUtilisateur(Utilisateur utilisateur) {
+        this.utilisateur = utilisateur;
+    }
+
+    public Paiement getPaiement() {
+        return paiement;
+    }
+
+    public void setPaiement(Paiement paiement) {
+        this.paiement = paiement;
+    }
+
+    public Etat getEtat() {
+        return etat;
+    }
+
+    public void setEtat(Etat etat) {
+        this.etat = etat;
+    }
+
+    public Gamme getGamme() {
+        return gamme;
+    }
+
+    public void setGamme(Gamme gamme) {
+        this.gamme = gamme;
+    }
 }
