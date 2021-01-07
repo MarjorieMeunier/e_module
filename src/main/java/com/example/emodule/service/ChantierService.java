@@ -1,25 +1,20 @@
 package com.example.emodule.service;
 
-import com.example.emodule.DAO.ChantierDAO;
+import com.example.emodule.Repository.ChantierRepository;
 import com.example.emodule.model.Chantier;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Component
-public class ChantierService {
+@Service
+public class ChantierService implements IChantierService{
 
-    //Injection du DAO chantier
     @Autowired
-    private ChantierDAO chantierDAO;
+    private ChantierRepository repository;
 
-
-    public List<Chantier> getAllChantier(){
-        return chantierDAO.findAll();
+    @Override
+    public List<Chantier> findAll() {
+        return (List<Chantier>) repository.findAll();
     }
-
-    /*public Chantier getByName(String name){
-        return chantierDAO.findByName(name);
-    }*/
 }

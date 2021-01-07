@@ -1,7 +1,8 @@
 package com.example.emodule.controller;
 
 import com.example.emodule.model.Chantier;
-import com.example.emodule.service.ChantierService;
+
+import com.example.emodule.service.IChantierService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,21 +14,22 @@ import java.util.List;
 @Controller
 public class ChantierController {
 
-
-    @Autowired
-    private ChantierService chantierService;
-
-
+    //---- commentaire ------------------
     @RequestMapping( value = {"/"}, method = RequestMethod.GET )
     public String accueil(){
         return "accueil";
     }
 
-    //Récupérer la liste des chantiers
-    @RequestMapping(value = {"/listeChantier"}, method = RequestMethod.GET)
-    public String listeChantier(Model model){
+    @Autowired
+    //instancie l'interface chantier
+    private IChantierService chantierService;
 
-        List<Chantier> chantiers = chantierService.getAllChantier();
+    //Récupérer la liste des chantiers
+    //--------c ommentaire --------------
+    @RequestMapping(value = {"/listeChantier"}, method = RequestMethod.GET)
+    public String listeChantier(Model model) throws Exception{
+
+        List<Chantier> chantiers = chantierService.findAll();
 
         model.addAttribute("chantiers", chantiers);
 

@@ -4,7 +4,7 @@ package com.example.emodule.model;
 import javax.persistence.*;
 import java.io.Serializable;
 
-//@Entity
+@Entity
 @Table(name="utilisateur")
 public class Utilisateur implements Serializable {
 

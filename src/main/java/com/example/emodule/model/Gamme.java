@@ -3,7 +3,7 @@ package com.example.emodule.model;
 import javax.persistence.*;
 import java.io.Serializable;
 
-//@Entity
+@Entity
 @Table(name="gamme")
 public class Gamme implements Serializable {
     @Id
