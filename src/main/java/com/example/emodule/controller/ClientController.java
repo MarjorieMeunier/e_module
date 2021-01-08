@@ -31,12 +31,12 @@ public class ClientController {
     private ClientRepository clientRepository;
 
     //Récupérer la liste des clients
-    /*@RequestMapping(value = {"/listeClient"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/listeClient"}, method = RequestMethod.GET)
     public String listeClient(Model model) throws Exception {
         List<Client> clients = clientService.findAll();
         model.addAttribute("clients", clients);
         return "listeClient";
-    }*/
+    }
 
     //Créer un client
     @PostMapping(value= {"/formulaireClient"})
@@ -62,7 +62,7 @@ public class ClientController {
        clientService.addClient(c);
       // model.addAttribute("client", c);
 
-        return "listeClient";
+        return "redirect:/listeClient";
     }
 
 }
