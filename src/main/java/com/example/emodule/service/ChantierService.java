@@ -2,6 +2,7 @@ package com.example.emodule.service;
 
 import com.example.emodule.Repository.ChantierRepository;
 import com.example.emodule.model.Chantier;
+import com.sun.xml.bind.v2.model.core.ID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,4 +18,5 @@ public class ChantierService implements IChantierService{
     public List<Chantier> findAll() {
         return (List<Chantier>) repository.findAll();
     }
+
 }
