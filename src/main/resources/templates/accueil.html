@@ -3,16 +3,76 @@
 <head>
     <title>Accueil</title>
 </head>
-<body>
+<body class="container-fluid" style="background-color: #0083f736">
 <div class="jumbotron text-center" style="margin-bottom:0">
     <h1 style="font-size: 2.5rem;
         color: #0083f7;
         font-weight: bold">E-MODULE</h1>
-    <p>Resize this responsive page to see the effect!</p>
+    <p>Bienvenue sur votre application E-Module</p>
 </div>
 <div th:insert="navbar.html"></div>
+<div class="row" style="margin-top:30px; margin-right: 0px ; margin-left: 0px " >
+    <div class="col-md-4 text-gauche-accueil">
+        <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et do
+            lore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p><p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et do
+        lore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+    </div>
 
-Voici l'accueil, à toi de jouer Stéphane !
+    <main class="col-md-8">
+        <div class="row" style="margin-top: 15px;">
+            <div class="col-md-5 offset-md-1">
+                <div style="background-color: #F2803F; border-radius: 30px;" >
+                    <br>
+                    <h2 style="text-align: center" class="text-white">Gestion des devis</h2>
+                    <div class="text-center">
+                        <br><br><br>
+                        <button class="btn btn-light btn-lg rounded-pill bouton-accueil">Gérer</button>
+                        <button class="btn btn-light btn-lg rounded-pill bouton-accueil">Créer</button>
+                        <br><br><br>
+                    </div>
+                </div><br>
+            </div>
+            <div class="col-md-5 ">
+                <div style="background-color: #299F7E; border-radius: 30px;" >
+                    <br>
+                    <h2 style="text-align: center" class="text-white">Gestion des clients</h2>
+                    <div class="text-center ">
+                        <br><br><br>
+                        <button class=" btn btn-light btn-lg rounded-pill bouton-accueil">Gérer</button>
+                        <button class=" btn btn-light btn-lg rounded-pill bouton-accueil">Créer</button>
+                        <br><br><br>
+                    </div>
+                </div><br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5 offset-md-1">
+                <div style="background-color: #33649E; border-radius: 30px;" >
+                    <br>
+                    <h2 style="text-align: center" class="text-white">Modélisation</h2>
+                    <div class="text-center">
+                        <br><br><br>
+                        <button  class="btn btn-light btn-lg rounded-pill bouton-accueil">Gérer</button>
+                        <button  class="btn btn-light btn-lg rounded-pill bouton-accueil">Créer</button>
+                        <br><br><br>
+                    </div>
+                </div><br>
+            </div>
+            <div class="col-md-5 ">
+                <div style="background-color: #F2AD3F; border-radius: 30px;">
+                    <br>
+                    <h2 style="text-align: center" class="text-white">Paiement</h2>
+                    <div class="text-center">
+                        <br><br><br>
+                        <button class="btn btn-light rounded-pill btn-lg bouton-accueil">Gérer</button>
+                        <button class="btn btn-light rounded-pill btn-lg bouton-accueil">Créer</button>
+                        <br><br><br>
+                    </div>
+                </div><br>
+            </div>
+        </div>
+    </main>
+</div>
 
 <div>
     Exemple :
@@ -21,7 +81,6 @@ Voici l'accueil, à toi de jouer Stéphane !
         <td th:text="${chantier.date_chantier}">...</td>
     </tr>
 </div>
-
 
 <a th:href="@{/listeChantier}">Liste des chantiers</a>
 
