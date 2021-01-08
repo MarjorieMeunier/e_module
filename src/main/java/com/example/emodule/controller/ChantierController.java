@@ -25,7 +25,7 @@ public class ChantierController {
     private IChantierService chantierService;
 
     //Récupérer la liste des chantiers
-    //--------c ommentaire --------------
+    //--------commentaire --------------
     @RequestMapping(value = {"/listeChantier"}, method = RequestMethod.GET)
     public String listeChantier(Model model) throws Exception{
 
