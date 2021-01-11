@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ClientService implements IClientService{
@@ -23,4 +24,13 @@ public class ClientService implements IClientService{
     public Client addClient(Client client){
         return repository.save(client);
     }
+
+    public void deleteClient(Integer idClient){
+        repository.deleteById(idClient);
+    }
+
+    public Optional<Client> findById(Integer idClient){
+        return repository.findById(idClient);
+    }
+
 }

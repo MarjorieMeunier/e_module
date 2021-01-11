@@ -6,15 +6,67 @@
 </head>
 <body>
 <div th:insert="navbar.html"></div>
-<div>
-    <table border="1">
-        <tr>
-            <th>Nom du client</th>
-        </tr>
-        <tr th:each ="client : ${clients}">
-            <td th:utext="${client.nom_client}">...</td>
-        </tr>
-    </table>
+<div class="container">
+<h1 class="text-center mt-4">Liste des clients</h1>
+    <div id="accordion" class="mt-4">
+        <div class="card" th:each ="client : ${clients}">
+            <div class="card-header" th:id="'heading'+${client.id_client}" >
+               <h5 th:utext="'Client : '+${client.nom_client}" data-toggle="collapse" th:attr="data-target='#client'+${client.id_client}" aria-expanded="false" aria-controls="collapseOne"></h5>
+            </div>
+
+            <div th:id="'client'+${client.id_client}" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-9">
+                            <div th:utext="'Client : '+${client.nom_client}">
+                            </div>
+                            <div th:utext="'Adresse : '+${client.adresse_client}+' '+${client.cp_client}+' '+${client.ville_client}">
+                            </div>
+                            <div th:utext="'Téléphone : '+${client.telephone_client}">
+                            </div>
+                            <div th:utext="'Email : '+${client.mail_client}">
+                            </div>
+                            <div class="mt-4" th:utext="'Nombre de devis : '"></div>
+
+                        </div>
+                        <div class="col">
+                            <a class="btn mt-2 rounded-pill" style="background-color: #006348; color: white;" th:href="@{'/modifierClient/' + ${client.id_client}}"> Modifier le client</a>
+                            <!--<button class="btn mt-2 rounded-pill" style="background-color: #006348; color: white;" th:href="@{'/archiverClient/' + ${client.id_client}}"> Archiver le client</button>-->
+
+                            <button class="btn mt-2 rounded-pill" style="background-color: #006348; color: white;"> Détail du devis</button>
+                            <button class="btn mt-2 rounded-pill" style="background-color: #006348; color: white;"> Détails des paiements</button>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" th:attr="data-target='#modalClient'+${client.id_client}">
+                                Launch demo modal
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" th:id="'modalClient'+${client.id_client}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>
