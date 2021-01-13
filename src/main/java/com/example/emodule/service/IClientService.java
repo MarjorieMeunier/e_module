@@ -8,11 +8,9 @@ import java.util.Optional;
 
 public interface IClientService {
 
-    List<Client> findAll();
-
     Client addClient(Client client);
 
-    void deleteClient(Integer id);
-
     Optional<Client> findById(Integer id);
+
+    List<Client> getListClientNotDelete();
 }

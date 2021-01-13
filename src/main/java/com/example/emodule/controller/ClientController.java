@@ -18,16 +18,24 @@ public class ClientController {
     //instancie l'interface client
     private IClientService clientService;
 
+    //Récupérer la liste des clients avec le flag 0 (non archivé)
+    @RequestMapping(value = {"/listeClient"}, method = RequestMethod.GET)
+    public String listeClient(Model model) throws Exception {
+        List<Client> clients = clientService.getListClientNotDelete();
+        model.addAttribute("clients", clients);
+        return "listeClient";
+    }
 
+    //Formulaire création client avec un attribut un nouveau client
     @RequestMapping(value = {"/creerClient"}, method = RequestMethod.GET)
-    public String creerClient(Model model) {
+    public String modelCreerClient(Model model) {
         model.addAttribute("client", new Client());
         return "creerClient";
     }
 
     //Créer un client
     @PostMapping(value= {"/creerClient"})
-    public String addClient(@ModelAttribute("client") Client
+    public String creerClient(@ModelAttribute("client") Client
                                     client, Model model, BindingResult bindingResult) {
 
         if(bindingResult.hasErrors()){
@@ -40,8 +48,9 @@ public class ClientController {
         return "redirect:/listeClient";
     }
 
+    //Formulaire de modification d'un client avec en paramètre l'id du client sélectionné
     @RequestMapping(value = {"/modifierClient/{id}"}, method = RequestMethod.GET)
-    public String modifierClient(@PathVariable Integer id, Model model) {
+    public String modelModifierClient(@PathVariable Integer id, Model model) {
 
         Optional<Client> c = clientService.findById(id);
         Client client = c.get();
@@ -52,44 +61,9 @@ public class ClientController {
         return "modifierClient";
     }
 
-    @RequestMapping(value = {"/archiverClient/{id}"}, method = RequestMethod.GET)
-    public String archiveClient(@PathVariable Integer id, Model model) {
-
-        Optional<Client> c = clientService.findById(id);
-        Client client = c.get();
-
-        System.out.println("ID : " + client.getId_client());
-        System.out.println("ID : " + client.getNom_client());
-        model.addAttribute("client", client);
-        return "modalArchiveClient";
-    }
-
-
-
-    //Récupérer la liste des clients
-    @RequestMapping(value = {"/listeClient"}, method = RequestMethod.GET)
-    public String listeClient(Model model) throws Exception {
-        List<Client> clients = clientService.findAll();
-        model.addAttribute("clients", clients);
-        return "listeClient";
-    }
-
-
-    //Suppression client
-    @DeleteMapping(value = "/listeClient/{id}")
-    public String deleteClient(@PathVariable Integer id){
-         clientService.deleteClient(id);
-
-       // if(!isRemoved){
-           // return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-       // }
-
-        return "redirect:/listeClient";
-    }
-
-    //Modification client
+    //Modification client avec l'attribut client de la méthode modifierClient()
     @PostMapping(value="/modifierClient/{id}")
-    public String updateClient(@PathVariable Integer id, @ModelAttribute("client") Client
+    public String modifierClient(@PathVariable Integer id, @ModelAttribute("client") Client
             client){
 
         Optional<Client> c = clientService.findById(id);
@@ -107,5 +81,21 @@ public class ClientController {
 
         return "redirect:/listeClient";
     }
+
+    //Archiver client avec en paramètre l'id du client sélectionné
+    @PostMapping(value = "/archiverClient/{id}")
+    public String archiverClient(@PathVariable Integer id, @ModelAttribute("client") Client client){
+        System.out.println("POST");
+        Optional<Client> c = clientService.findById(id);
+        Client client1 = c.get();
+
+        client1.setFlag(1);
+
+        clientService.addClient(client1);
+
+        return "redirect:/listeClient";
+    }
+
+
 
 }

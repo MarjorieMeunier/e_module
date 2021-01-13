@@ -8,13 +8,14 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @EnableJpaRepositories
 public interface ClientRepository extends CrudRepository<Client, Integer> {
 
-   /* @Transactional()
-    @Query("select c from Client c where c.id_client = :id")
-    public Client findByIdClient(@Param("id") Integer id);*/
+    @Transactional()
+    @Query("select c from Client c where c.flag = 0")
+    public List<Client> getListClientNotDelete();
 
 
 }

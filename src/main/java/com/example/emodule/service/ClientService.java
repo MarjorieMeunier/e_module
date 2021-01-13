@@ -16,21 +16,16 @@ public class ClientService implements IClientService{
     private ClientRepository repository;
 
     @Override
-    public List<Client> findAll() {
-        return (List<Client>) repository.findAll();
-    }
-
-    @Override
     public Client addClient(Client client){
         return repository.save(client);
     }
 
-    public void deleteClient(Integer idClient){
-        repository.deleteById(idClient);
-    }
-
     public Optional<Client> findById(Integer idClient){
         return repository.findById(idClient);
+    }
+
+    public List<Client> getListClientNotDelete(){
+        return repository.getListClientNotDelete();
     }
 
 }

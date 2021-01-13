@@ -33,6 +33,9 @@ public class Client implements Serializable {
     @Column(name="mail_client")
     private String mail_client;
 
+    @Column(name="flag")
+    private Integer flag;
+
 
     public Integer getId_client() {
         return id_client;
@@ -96,5 +99,13 @@ public class Client implements Serializable {
 
     public void setMail_client(String mail_client) {
         this.mail_client = mail_client;
+    }
+
+    public Integer getFlag() {
+        return flag;
+    }
+
+    public void setFlag(Integer flag) {
+        this.flag = flag;
     }
 }
