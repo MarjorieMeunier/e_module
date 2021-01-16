@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ClientService implements IClientService{
@@ -15,12 +16,16 @@ public class ClientService implements IClientService{
     private ClientRepository repository;
 
     @Override
-    public List<Client> findAll() {
-        return (List<Client>) repository.findAll();
-    }
-
-    @Override
     public Client addClient(Client client){
         return repository.save(client);
     }
+
+    public Optional<Client> findById(Integer idClient){
+        return repository.findById(idClient);
+    }
+
+    public List<Client> getListClientNotDelete(){
+        return repository.getListClientNotDelete();
+    }
+
 }
