@@ -12,28 +12,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import java.util.List;
 
 @Controller
-public class ChantierController {
+public class AccueilController {
 
     //---- commentaire ------------------
     @RequestMapping( value = {"/"}, method = RequestMethod.GET )
     public String accueil(){
         return "accueil";
-    }
-
-    @Autowired
-    //instancie l'interface chantier
-    private IChantierService chantierService;
-
-    //Récupérer la liste des chantiers
-    //--------commentaire --------------
-    @RequestMapping(value = {"/listeChantier"}, method = RequestMethod.GET)
-    public String listeChantier(Model model) throws Exception{
-
-        List<Chantier> chantiers = chantierService.findAll();
-
-        model.addAttribute("chantiers", chantiers);
-
-        return "listeChantier";
     }
 
 
