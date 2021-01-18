@@ -20,6 +20,9 @@ public class Paiement implements Serializable {
     @Column(name="pourcentage_etape")
     private Integer pourcentage_etape;
 
+    @Column(name="flag")
+    private Integer flag;
+
     public Integer getId_paiement() {
         return id_paiement;
     }
@@ -42,5 +45,13 @@ public class Paiement implements Serializable {
 
     public void setPourcentage_etape(Integer pourcentage_etape) {
         this.pourcentage_etape = pourcentage_etape;
+    }
+
+    public Integer getFlag() {
+        return flag;
+    }
+
+    public void setFlag(Integer flag) {
+        this.flag = flag;
     }
 }
