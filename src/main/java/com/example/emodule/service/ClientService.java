@@ -17,6 +17,7 @@ public class ClientService implements IClientService{
 
     @Override
     public Client addClient(Client client){
+        client.setFlag(0);
         return repository.save(client);
     }
 
