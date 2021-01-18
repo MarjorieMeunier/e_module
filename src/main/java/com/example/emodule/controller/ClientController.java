@@ -96,6 +96,27 @@ public class ClientController {
         return "redirect:/listeClient";
     }
 
+    //Formulaire recherche client
+    @RequestMapping(value = {"/rechercherClient"}, method = RequestMethod.GET)
+    public String modelRechercherClient(Model model) {
+        //model.addAttribute("client", new Client());
+        return "rechercherClient";
+    }
+
+    //Archiver client avec en paramètre l'id du client sélectionné
+    @PostMapping(value = "/rechercherClient")
+    public String archiverClient(@ModelAttribute("client") Client client){
+        System.out.println("POST");
+       /* Optional<Client> c = clientService.findById(id);
+        Client client1 = c.get();
+
+        client1.setFlag(1);
+
+        clientService.addClient(client1);*/
+
+        return "redirect:/listeClient";
+    }
+
 
 
 }
