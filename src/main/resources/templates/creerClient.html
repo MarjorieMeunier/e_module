@@ -4,42 +4,45 @@
     <title>Ajout d'un client</title>
 </head>
 
-<body>
+<body style="background-color: #D5DDE3">
 <div th:insert="navbar.html"></div>
 <h1 class="text-center"> Ajouter un client </h1>
 <div class="container">
 <form action="#" th:action="@{creerClient}" th:object="${client}" class="justify-content-center" method="post">
     <div class="form-group">
-        <label for="nom">Nom</label>
-        <input type="text" th:field="*{nom_client}" class="form-control" id="nom">
+        <label style ="color:#006348" for="nom">Nom</label>
+        <input type="text" th:field="*{nom_client}" class="form-control rounded-pill" id="nom" required>
     </div>
     <div class="form-group">
-        <label for="prenom">Prénom</label>
-        <input type="text" th:field="*{prenom_client}" class="form-control" id="prenom">
+        <label style ="color:#006348" for="prenom">Prénom</label>
+        <input type="text" th:field="*{prenom_client}" class="form-control rounded-pill" id="prenom" required>
     </div>
     <div class="form-group">
-        <label for="mail">Adresse mail</label>
-        <input type="text" th:field="*{mail_client}" class="form-control" id="mail">
+        <label style ="color:#006348" for="mail">Adresse mail</label>
+        <input type="mail" th:field="*{mail_client}" class="form-control rounded-pill" id="mail" required>
     </div>
     <div class="form-row">
-    <div class="form-group col-md-6">
-        <label for="rue">Rue et Numéro</label>
-        <input type="text" th:field="*{adresse_client}" class="form-control" id="rue">
+    <div class="form-group col-md-8">
+        <label style ="color:#006348" for="rue">Rue et Numéro</label>
+        <input type="text" th:field="*{adresse_client}" class="form-control rounded-pill" id="rue" required>
     </div>
         <div class="form-group col-md-4">
-        <label for="cp">Code postal</label>
-        <input type="text" th:field="*{cp_client}" class="form-control" id="cp">
+        <label style ="color:#006348" for="cp">Code postal</label>
+        <input type="number" th:field="*{cp_client}" class="form-control rounded-pill" id="cp" required>
     </div>
     </div>
     <div class="form-group">
-        <label for="ville">Ville</label>
-        <input type="text" th:field="*{ville_client}" class="form-control" id="ville">
+        <label style ="color:#006348" for="ville">Ville</label>
+        <input type="text" th:field="*{ville_client}" class="form-control rounded-pill" id="ville" required>
     </div>
     <div class="form-group">
-        <label for="tel">Numéro de téléphone</label>
-        <input type="text" th:field="*{telephone_client}" class="form-control" id="tel">
+        <label style ="color:#006348" for="tel">Numéro de téléphone</label>
+        <input type="number" th:field="*{telephone_client}" class="form-control rounded-pill" id="tel" required>
     </div>
-    <button type="submit" class="btn btn-primary">Créer</button>
+    <div class="">
+        <div id="test" class="fa-pull-right"><button type="submit" class="btn btn-success rounded-pill">Créer</button></div>
+        <div class="fa-pull-left" ><button type="submit" class="btn btn-warning rounded-pill">Retour</button></div>
+    </div>
 </form>
 </div>
 </body>
