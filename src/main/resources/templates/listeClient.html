@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <title>Liste des clients</title>
 </head>
-<body>
+<body style="background-color: #D5DDE3">
+
 <div th:insert="navbar.html"></div>
 <div class="container">
 <h1 class="text-center mt-4">Liste des clients</h1>
     <table id="example" class="table table-striped table-bordered" style="width:100%">
-        <thead>
-        <tr>
+        <thead style="background-color: #006348">
+        <tr style="color: white">
             <th>Nom</th>
             <th>Prénom</th>
             <th>Adresse</th>
@@ -22,7 +23,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each ="client : ${clients}">
+        <tr style="background-color: #e7fff7" th:each ="client : ${clients}">
             <td th:utext="${client.nom_client}"></td>
             <td th:utext="${client.prenom_client}"></td>
             <td th:utext="${client.adresse_client}"></td>
@@ -33,14 +34,14 @@
             <td>
                 <div class="row">
                     <div class="col">
-                        <a class="btn mt-2 rounded-pill" style="background-color: #006348; color: white;" th:href="@{'/modifierClient/' + ${client.id_client}}"> Modifier le client</a>
-                        <button class="btn mt-2 rounded-pill" style="background-color: #006348; color: white;" data-toggle="modal" th:attr="data-target='#modalClient'+${client.id_client}">
-                            Archiver le client
+                        <a title ="Modifier le client" class="btn mt-2 rounded-pill" style="background-color: #0d8eff; color: white;" th:href="@{'/modifierClient/' + ${client.id_client}}"> <i class="fas fa-edit"></i></a>
+                        <button title ="Archiver le client" class="btn mt-2 rounded-pill" style="background-color: #ff3030; color: white;" data-toggle="modal" th:attr="data-target='#modalClient'+${client.id_client}">
+                            <i class="fas fa-archive"></i>
                         </button>
                     </div>
                     <div class="col">
-                        <button class="btn mt-2 rounded-pill" style="background-color: #006348; color: white;"> Détail du devis</button>
-                        <button class="btn mt-2 rounded-pill" style="background-color: #006348; color: white;"> Détails des paiements</button>
+                        <button title ="Détails du devis" class="btn mt-2 rounded-pill" style="background-color: #c6977d; color: white;"> <i class="fas fa-info-circle"></i></button>
+                        <button title ="Détails du paiement" class="btn mt-2 rounded-pill" style="background-color: #ffa10d; color: white;"> <i class="far fa-file-alt"></i></button>
                     </div>
 
                 </div>
@@ -72,8 +73,8 @@
             </td>
         </tr>
         </tbody>
-        <tfoot>
-        <tr>
+        <tfoot style="background-color: #006348">
+        <tr class="text-white">
             <th>Nom</th>
             <th>Prénom</th>
             <th>Adresse</th>
