@@ -1,8 +1,6 @@
 package com.example.emodule.service;
 
 import com.example.emodule.model.Chantier;
-import com.example.emodule.model.Client;
-
 import java.util.List;
 import java.util.Optional;
 

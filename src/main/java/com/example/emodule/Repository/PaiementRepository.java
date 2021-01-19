@@ -1,6 +1,5 @@
 package com.example.emodule.Repository;
 
-import com.example.emodule.model.Chantier;
 import com.example.emodule.model.Paiement;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;

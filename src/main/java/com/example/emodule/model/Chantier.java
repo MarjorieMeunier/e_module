@@ -21,6 +21,9 @@ public class Chantier implements Serializable {
     @Column(name="date_chantier")
     private String date_chantier;
 
+    @Column(name="flag")
+    private Integer flag;
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_utilisateur", referencedColumnName = "id_utilisateur")
     private Utilisateur utilisateur;

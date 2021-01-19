@@ -116,7 +116,14 @@
         <tbody>
         <tr>
             <td>
-                <select>
+                <select id="couvertureFamille">
+                    <option value="">Sélectionnez</option>
+                    <option th:each="familleComposant : ${familleComposants}" th:value="${familleComposant.id_famille_composant}" th:text="${familleComposant.nom_famille_composant}"></option>
+                </select>
+
+            </td>
+            <td>
+                <select id="couvertureComposant">
                     <option value="0">Sélectionnez</option>
                     <option value="1">Audi</option>
                     <option value="2">BMW</option>
@@ -127,40 +134,13 @@
                 </select>
             </td>
             <td>
-                <select>
-                    <option value="0">Sélectionnez</option>
-                    <option value="1">Audi</option>
-                    <option value="2">BMW</option>
-                    <option value="3">Citroen</option>
-                    <option value="4">Ford</option>
-                    <option value="5">Honda</option>
-                    <option value="6">Jaguar</option>
-                </select>
+                <input type="number" min="1">
             </td>
             <td>
-                <select>
-                    <option value="0">Sélectionnez</option>
-                    <option value="1">Audi</option>
-                    <option value="2">BMW</option>
-                    <option value="3">Citroen</option>
-                    <option value="4">Ford</option>
-                    <option value="5">Honda</option>
-                    <option value="6">Jaguar</option>
-                </select>
+                <input type="number" id="prixUnitaire" min="0" value="0" disabled>
             </td>
             <td>
-                <select>
-                    <option value="0">Sélectionnez</option>
-                    <option value="1">Audi</option>
-                    <option value="2">BMW</option>
-                    <option value="3">Citroen</option>
-                    <option value="4">Ford</option>
-                    <option value="5">Honda</option>
-                    <option value="6">Jaguar</option>
-                </select>
-            </td>
-            <td>
-                1050 €
+                <input type="number" id="prixTotal" min="0" value="0" disabled>
             </td>
         </tr>
         </tbody>
@@ -271,7 +251,7 @@
                             <tbody>
                             <tr>
                                 <td>
-                                    <select>
+                                    <select id="couvertureFamille">
                                         <option value="0">Sélectionnez</option>
                                         <option value="1">Audi</option>
                                         <option value="2">BMW</option>
@@ -282,7 +262,7 @@
                                     </select>
                                 </td>
                                 <td>
-                                    <select>
+                                    <select id="couvertureComposant">
                                         <option value="0">Sélectionnez</option>
                                         <option value="1">Audi</option>
                                         <option value="2">BMW</option>
@@ -293,15 +273,7 @@
                                     </select>
                                 </td>
                                 <td>
-                                    <select>
-                                        <option value="0">Sélectionnez</option>
-                                        <option value="1">Audi</option>
-                                        <option value="2">BMW</option>
-                                        <option value="3">Citroen</option>
-                                        <option value="4">Ford</option>
-                                        <option value="5">Honda</option>
-                                        <option value="6">Jaguar</option>
-                                    </select>
+                                    <input type="number" min="1">
                                 </td>
                                 <td>
                                     10€
@@ -322,5 +294,6 @@
         </div>
     </form>
 </div>
+<script type="application/javascript" th:src="@{/js/src/creationDevis.js}"></script>
 </body>
 </html>

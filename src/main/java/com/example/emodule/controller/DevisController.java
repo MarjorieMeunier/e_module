@@ -2,13 +2,16 @@ package com.example.emodule.controller;
 
 import com.example.emodule.model.Chantier;
 import com.example.emodule.model.Client;
+import com.example.emodule.model.FamilleComposant;
 import com.example.emodule.service.IChantierService;
 import com.example.emodule.service.IClientService;
+import com.example.emodule.service.IFamilleComposantService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,8 +22,19 @@ public class DevisController {
     //instancie l'interface chantier/devis
     private IChantierService devisService;
 
+    @Autowired
+    private IFamilleComposantService familleComposantService;
+
+
     @RequestMapping( value = {"/creerDevis"}, method = RequestMethod.GET )
-    public String creerDevis(){
+    public String creerDevis(Model model) throws Exception {
+
+        List<FamilleComposant> familleComposants = familleComposantService.getListFamilleComposantCouverture();
+        model.addAttribute("familleComposants", familleComposants);
+
+        for (int i = 0; i < familleComposants.size(); i++){
+            System.out.println(familleComposants.get(i).getNom_famille_composant());
+        }
         return "creerDevis";
     }
 
