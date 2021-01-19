@@ -8,7 +8,7 @@
 <div th:insert="navbar.html"></div>
 <h1 class="text-center"> Ajouter un client </h1>
 <div class="container">
-<form action="#" th:action="@{creerClient}" th:object="${client}" class="justify-content-center" method="post">
+<form action="#" th:action="@{creerClient}" th:object="${client}" class="justify-content-center" method="post" onsubmit="alert('you submitted the form');">
     <div class="form-group">
         <label style ="color:#006348" for="nom">Nom</label>
         <input type="text" th:field="*{nom_client}" class="form-control rounded-pill" id="nom" required>
@@ -19,7 +19,7 @@
     </div>
     <div class="form-group">
         <label style ="color:#006348" for="mail">Adresse mail</label>
-        <input type="mail" th:field="*{mail_client}" class="form-control rounded-pill" id="mail" required>
+        <input type="email" th:field="*{mail_client}" class="form-control rounded-pill" id="mail" required>
     </div>
     <div class="form-row">
     <div class="form-group col-md-8">
