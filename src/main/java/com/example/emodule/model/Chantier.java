@@ -3,7 +3,7 @@ package com.example.emodule.model;
 import javax.persistence.*;
 
 import java.io.Serializable;
-
+import java.util.List;
 
 
 @Entity
@@ -21,6 +21,9 @@ public class Chantier implements Serializable {
     @Column(name="date_chantier")
     private String date_chantier;
 
+    @Column(name="flag")
+    private Integer flag;
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_utilisateur", referencedColumnName = "id_utilisateur")
     private Utilisateur utilisateur;
@@ -36,6 +39,14 @@ public class Chantier implements Serializable {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_gamme", referencedColumnName = "id_gamme")
     private Gamme gamme;
+
+    @ManyToMany(cascade = { CascadeType.ALL })
+    @JoinTable(
+            name = "devis_client",
+            joinColumns = { @JoinColumn(name = "id_chantier") },
+            inverseJoinColumns = { @JoinColumn(name = "id_client") }
+    )
+    List<Client> clients;
 
     public Chantier() {
     }
@@ -100,5 +111,21 @@ public class Chantier implements Serializable {
 
     public void setGamme(Gamme gamme) {
         this.gamme = gamme;
+    }
+
+    public Integer getFlag() {
+        return flag;
+    }
+
+    public void setFlag(Integer flag) {
+        this.flag = flag;
+    }
+
+    public List<Client> getClients() {
+        return clients;
+    }
+
+    public void setClients(List<Client> clients) {
+        this.clients = clients;
     }
 }

@@ -102,7 +102,8 @@
         }
     </style>
     <hr>
-    <h3>Module : Couverture</h3>
+    <div th:each ="module : ${modules}">
+    <h3 th:utext="'Module : '+${module.nature_module}"></h3>
     <table style ="border: 1px solid black; border-collapse: collapse;" class="table table-hover">
         <thead style="background-color : white" class="thead-dark">
         <tr>
@@ -114,9 +115,17 @@
         </tr>
         </thead>
         <tbody>
+
         <tr>
             <td>
-                <select>
+                <select id="couvertureFamille">
+                    <option value="">Sélectionnez</option>
+                    <option th:each="familleComposant : ${familleComposants}" th:value="${familleComposant.id_famille_composant}" th:text="${familleComposant.nom_famille_composant}"></option>
+                </select>
+
+            </td>
+            <td>
+                <select id="couvertureComposant">
                     <option value="0">Sélectionnez</option>
                     <option value="1">Audi</option>
                     <option value="2">BMW</option>
@@ -127,46 +136,20 @@
                 </select>
             </td>
             <td>
-                <select>
-                    <option value="0">Sélectionnez</option>
-                    <option value="1">Audi</option>
-                    <option value="2">BMW</option>
-                    <option value="3">Citroen</option>
-                    <option value="4">Ford</option>
-                    <option value="5">Honda</option>
-                    <option value="6">Jaguar</option>
-                </select>
+                <input type="number" min="1">
             </td>
             <td>
-                <select>
-                    <option value="0">Sélectionnez</option>
-                    <option value="1">Audi</option>
-                    <option value="2">BMW</option>
-                    <option value="3">Citroen</option>
-                    <option value="4">Ford</option>
-                    <option value="5">Honda</option>
-                    <option value="6">Jaguar</option>
-                </select>
+                <input type="number" id="prixUnitaire" min="0" value="0" disabled>
             </td>
             <td>
-                <select>
-                    <option value="0">Sélectionnez</option>
-                    <option value="1">Audi</option>
-                    <option value="2">BMW</option>
-                    <option value="3">Citroen</option>
-                    <option value="4">Ford</option>
-                    <option value="5">Honda</option>
-                    <option value="6">Jaguar</option>
-                </select>
-            </td>
-            <td>
-                1050 €
+                <input type="number" id="prixTotal" min="0" value="0" disabled>
             </td>
         </tr>
         </tbody>
     </table>
-    <button style="background-color: #983700" type="submit" data-toggle="modal" data-target="#FormEnvoyer" class="btn rounded-pill text-white fa-pull-right">Enregistrer</button>
 
+    <button style="background-color: #983700" type="submit" data-toggle="modal" data-target="#FormEnvoyer" class="btn rounded-pill text-white fa-pull-right">Enregistrer</button>
+    </div>
     <form action="">
         <div class="modal fade" id="FormEnvoyer" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
@@ -271,7 +254,7 @@
                             <tbody>
                             <tr>
                                 <td>
-                                    <select>
+                                    <select id="couvertureFamille">
                                         <option value="0">Sélectionnez</option>
                                         <option value="1">Audi</option>
                                         <option value="2">BMW</option>
@@ -282,7 +265,7 @@
                                     </select>
                                 </td>
                                 <td>
-                                    <select>
+                                    <select id="couvertureComposant">
                                         <option value="0">Sélectionnez</option>
                                         <option value="1">Audi</option>
                                         <option value="2">BMW</option>
@@ -293,15 +276,7 @@
                                     </select>
                                 </td>
                                 <td>
-                                    <select>
-                                        <option value="0">Sélectionnez</option>
-                                        <option value="1">Audi</option>
-                                        <option value="2">BMW</option>
-                                        <option value="3">Citroen</option>
-                                        <option value="4">Ford</option>
-                                        <option value="5">Honda</option>
-                                        <option value="6">Jaguar</option>
-                                    </select>
+                                    <input type="number" min="1">
                                 </td>
                                 <td>
                                     10€
@@ -322,5 +297,6 @@
         </div>
     </form>
 </div>
+<script type="application/javascript" th:src="@{/js/src/creationDevis.js}"></script>
 </body>
 </html>
