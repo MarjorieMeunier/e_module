@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des devis</title>
+</head>
+<body>
+<div th:insert="navbar.html"></div>
+<div class="container-fluid">
+<h1 class="text-center mt-4">Liste des devis</h1>
+    <div class="table-responsive">
+    <table id="example" class="table table-striped table-bordered display" style="width:100%">
+        <thead>
+        <tr>
+            <th colspan="4">Projet / Devis</th>
+            <th colspan="3">Client</th>
+            <th rowspan="2">Plus d'information</th>
+
+        </tr>
+        <tr>
+            <th>N°</th>
+            <th>Référence du projet</th>
+            <th>Date du projet</th>
+            <th>Etat du devis</th>
+            <th>Nom / Prénom</th>
+            <th>Adresse</th>
+            <th>Mail</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr >
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        </tbody>
+    </table>
+
+    </div>
+
+
+</div>
+
+
+</body>
+<script>
+    $(document).ready(function() {
+        $('#example').DataTable();
+    } );
+</script>
+</html>

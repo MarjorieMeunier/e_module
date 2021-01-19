@@ -4,7 +4,7 @@
 <body>
 
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-    <a class="navbar-brand" href="#">Accueil</a>
+    <a class="navbar-brand"  th:href="@{/}">Accueil</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -24,8 +24,8 @@
                     Devis
                 </a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Création devis</a>
-                    <a class="dropdown-item" href="#">Gestion devis</a>
+                    <a class="dropdown-item" th:href="@{/creerDevis}">Création devis</a>
+                    <a class="dropdown-item" th:href="@{/listeDevis}">Gestion devis</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
@@ -33,9 +33,8 @@
                     Paiement
                 </a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Link 1</a>
-                    <a class="dropdown-item" href="#">Link 2</a>
-                    <a class="dropdown-item" href="#">Link 3</a>
+                    <a class="dropdown-item" href="#">Création </a>
+                    <a class="dropdown-item" th:href="@{/listePaiement}">Gestion </a>
                 </div>
             </li>
         </ul>

@@ -3,6 +3,7 @@ package com.example.emodule.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name="client")
@@ -35,6 +36,9 @@ public class Client implements Serializable {
 
     @Column(name="flag")
     private Integer flag;
+
+    @ManyToMany(mappedBy = "clients")
+    private List<Chantier> chantiers;
 
 
     public Integer getId_client() {
@@ -107,5 +111,13 @@ public class Client implements Serializable {
 
     public void setFlag(Integer flag) {
         this.flag = flag;
+    }
+
+    public List<Chantier> getChantiers() {
+        return chantiers;
+    }
+
+    public void setChantiers(List<Chantier> chantiers) {
+        this.chantiers = chantiers;
     }
 }

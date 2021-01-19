@@ -38,8 +38,8 @@
                     <h2 style="text-align: center" class="text-white">Gestion des clients</h2>
                     <div class="text-center ">
                         <br><br><br>
-                        <button class=" btn btn-light btn-lg rounded-pill bouton-accueil">Gérer</button>
-                        <button class=" btn btn-light btn-lg rounded-pill bouton-accueil">Créer</button>
+                        <a class="button btn btn-light btn-lg rounded-pill bouton-accueil" th:href="@{/creerClient}" >Créer</a>
+                        <a class="button btn btn-light btn-lg rounded-pill bouton-accueil" th:href="@{/listeClient}" >Gérer</a>
                         <br><br><br>
                     </div>
                 </div><br>
@@ -73,17 +73,6 @@
         </div>
     </main>
 </div>
-
-<div>
-    Exemple :
-    <tr th:each ="chantier : ${chantiers}">
-        <td th:text="${chantier.nom_chantier}">...</td>
-        <td th:text="${chantier.date_chantier}">...</td>
-    </tr>
-</div>
-
-<a th:href="@{/listeChantier}">Liste des chantiers</a>
-
 </body>
 
 </html>
