@@ -19,12 +19,22 @@ public class PaiementController {
     //instancie l'interface chantier/devis
     private IPaiementService paiementService;
 
+    @Autowired
+    private IChantierService chantierService;
+
 
     //Récupérer la liste des devis
     @RequestMapping(value = {"/listePaiement"}, method = RequestMethod.GET)
     public String listePaiement(Model model) throws Exception {
+
+        List<Chantier> chantiers = chantierService.getListChantierNotDelete();
+        model.addAttribute("chantier", chantiers);
+
         List<Paiement> paiements = paiementService.getListPaiementNotDelete();
         model.addAttribute("paiement", paiements);
+
+
+
         return "listePaiement";
     }
 

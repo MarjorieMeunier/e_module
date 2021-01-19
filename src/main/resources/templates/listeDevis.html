@@ -38,12 +38,9 @@
             <td th:utext="${chantier.nom_chantier}"></td>
             <td th:utext="${chantier.date_chantier}"></td>
             <td> COMMERCIAL </td>
-
-
             <td><div th:each = " client : ${chantier.clients}" ><span th:utext="'Client : ' + ${client.nom_client} +' '+ ${client.prenom_client}"></span></div></td>
             <td><div th:each = " client : ${chantier.clients}" ><span th:utext="'Client : ' + ${client.adresse_client}"></span></div></td>
             <td><div th:each = " client : ${chantier.clients}" ><span th:utext="'Client : ' + ${client.mail_client} +' '+ ${client.prenom_client}"></span></div></td>
-
             <td th:utext="${chantier.etat.libelle_etat}"></td>
             <td th:utext="${chantier.gamme.libelle_gamme}"></td>
             <td> MODELE </td>
