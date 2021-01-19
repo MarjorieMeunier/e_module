@@ -1,6 +1,7 @@
 package com.example.emodule.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="module")
@@ -16,6 +17,9 @@ public class Module {
 
     @Column(name="caracteristiques")
     private String caracteristiques;
+
+    @ManyToMany(mappedBy = "modules")
+    private List<FamilleComposant> familleComposants;
 
     public Integer getId_module() {
         return id_module;
@@ -39,5 +43,13 @@ public class Module {
 
     public void setCaracteristiques(String caracteristiques) {
         this.caracteristiques = caracteristiques;
+    }
+
+    public List<FamilleComposant> getFamilleComposants() {
+        return familleComposants;
+    }
+
+    public void setFamilleComposants(List<FamilleComposant> familleComposants) {
+        this.familleComposants = familleComposants;
     }
 }

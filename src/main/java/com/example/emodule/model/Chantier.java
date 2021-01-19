@@ -40,9 +40,6 @@ public class Chantier implements Serializable {
     @JoinColumn(name = "id_gamme", referencedColumnName = "id_gamme")
     private Gamme gamme;
 
-    @Column(name="flag")
-    private Integer flag;
-
     @ManyToMany(cascade = { CascadeType.ALL })
     @JoinTable(
             name = "devis_client",

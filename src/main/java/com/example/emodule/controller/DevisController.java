@@ -3,9 +3,11 @@ package com.example.emodule.controller;
 import com.example.emodule.model.Chantier;
 import com.example.emodule.model.Client;
 import com.example.emodule.model.FamilleComposant;
+import com.example.emodule.model.Module;
 import com.example.emodule.service.IChantierService;
 import com.example.emodule.service.IClientService;
 import com.example.emodule.service.IFamilleComposantService;
+import com.example.emodule.service.IModuleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,16 +27,23 @@ public class DevisController {
     @Autowired
     private IFamilleComposantService familleComposantService;
 
+    @Autowired
+    private IModuleService moduleService;
+
 
     @RequestMapping( value = {"/creerDevis"}, method = RequestMethod.GET )
-    public String creerDevis(Model model) throws Exception {
-
-        List<FamilleComposant> familleComposants = familleComposantService.getListFamilleComposantCouverture();
+    public String creerDevis( Model model) throws Exception {
+      // System.out.println("ID MODULE " + id_module);
+        List<FamilleComposant> familleComposants = familleComposantService.getListFamilleComposantCouverture(1);
         model.addAttribute("familleComposants", familleComposants);
 
-        for (int i = 0; i < familleComposants.size(); i++){
+        List<Module> moduleList = moduleService.findAll();
+        model.addAttribute("modules", moduleList);
+        System.out.println("MODULES : " + moduleList.size());
+
+       /* for (int i = 0; i < familleComposants.size(); i++){
             System.out.println(familleComposants.get(i).getNom_famille_composant());
-        }
+        }*/
         return "creerDevis";
     }
 

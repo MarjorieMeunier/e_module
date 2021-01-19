@@ -2,6 +2,7 @@ package com.example.emodule.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name="famille_composant")
@@ -14,6 +15,14 @@ public class FamilleComposant implements Serializable{
 
     @Column(name="nom_famille_composant")
     private String nom_famille_composant;
+
+    @ManyToMany(cascade = { CascadeType.ALL })
+    @JoinTable(
+            name = "famille_composant_module",
+            joinColumns = { @JoinColumn(name = "id_famille_composant") },
+            inverseJoinColumns = { @JoinColumn(name = "id_module") }
+    )
+    List<Module> modules;
 
     public void setId_famille_composant(Integer id_famille_composant) {
         this.id_famille_composant = id_famille_composant;
@@ -29,5 +38,13 @@ public class FamilleComposant implements Serializable{
 
     public String getNom_famille_composant() {
         return nom_famille_composant;
+    }
+
+    public List<Module> getModules() {
+        return modules;
+    }
+
+    public void setModules(List<Module> modules) {
+        this.modules = modules;
     }
 }

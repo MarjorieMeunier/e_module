@@ -5,5 +5,5 @@ import java.util.List;
 
 public interface IFamilleComposantService {
 
-    List<FamilleComposant> getListFamilleComposantCouverture();
+    List<FamilleComposant> getListFamilleComposantCouverture(Integer id_module);
 }
