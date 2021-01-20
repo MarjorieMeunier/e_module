@@ -133,7 +133,7 @@
 
             </td>
             <td>
-                <select th:id="'selectComposant' + ${module.id_module}">
+                <select th:id="'selectComposant' + ${module.id_module}" th:attr="data-module=${module.id_module}" onchange="majPrixComposant(this);">
                     <option value="">Sélectionnez</option>
                 </select>
             </td>
