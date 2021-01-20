@@ -23,35 +23,35 @@
             <!-- Default input -->
             <label for="inputCommercial" class="col-sm-2 col-form-label">Commercial </label>
             <div class="col-sm-5">
-                <input style ="color : white; background-color: #983700 ; opacity: 0.4" type="text" class="form-control rounded-pill" id="inputCommercial" value="Le nom sera déjà rempli">
+                <input type="text" class="form-control rounded-pill inputDevis" id="inputCommercial" value="Le nom sera déjà rempli">
             </div>
         </div>
         <div class="form-group row">
             <!-- Default input -->
             <label for="inputRechercherClient" class="col-sm-2 col-form-label"></label>
             <div class="col-sm-5">
-                <span>Client existant ? Recherchez votre client sinon </span><a href="#">Créer un client</a>
-                <input  type="text" class="form-control rounded-pill" id="inputRechercherClient" placeholder="La recherche en ajax">
+                <span>Client existant ? Recherchez votre client sinon </span><a th:href="@{/creerClient}" >Créer un client</a>
+                <input type="text" class="form-control rounded-pill" id="inputRechercherClient" placeholder="La recherche en ajax">
             </div>
         </div>
         <div class="form-group row">
             <!-- Default input -->
             <label for="inputNomClient" class="col-sm-2 col-form-label">Nom :</label>
             <div class="col-sm-5">
-                <input style ="color : white; background-color: #983700 ; opacity: 0.4" type="text" class="form-control rounded-pill" id="inputNomClient" value="Nom en dur injecté par la recherche">
+                <input type="text" class="form-control rounded-pill inputDevis" id="inputNomClient" value="Nom en dur injecté par la recherche">
             </div>
 
             <!-- Default input -->
             <label for="inputPrenomClient" class="col-sm-1 col-form-label">Prénom </label>
             <div class="col-sm-4">
-                <input style ="color : white; background-color: #983700 ; opacity: 0.4" type="text" class="form-control rounded-pill" id="inputPrenomClient" value="Prénom en dur injecté par la recherche">
+                <input type="text" class="form-control rounded-pill inputDevis" id="inputPrenomClient" value="Prénom en dur injecté par la recherche">
             </div>
         </div>
         <div class="form-group row">
             <!-- Default input -->
             <label for="inputAdresseClient" class="col-sm-2 col-form-label">Adresse </label>
             <div class="col-sm-10">
-                <input style ="color : white; background-color: #983700 ; opacity: 0.4" type="text" class="form-control rounded-pill" id="inputAdresseClient" value="Adresse en dur injectée par la recherche">
+                <input type="text" class="form-control rounded-pill inputDevis" id="inputAdresseClient" value="Adresse en dur injectée par la recherche">
             </div>
         </div>
         <div class="row">
@@ -60,28 +60,28 @@
                     <!-- Default input -->
                     <label for="inputCPClient" class="col-sm-4 col-form-label">Code postal </label>
                     <div class="col-sm-8">
-                        <input style ="color : white; background-color: #983700 ; opacity: 0.4" type="text" class="form-control rounded-pill" id="inputCPClient" value="CP en dur injecté par la recherche">
+                        <input type="text" class="form-control rounded-pill inputDevis" id="inputCPClient" value="CP en dur injecté par la recherche">
                     </div>
                 </div>
                 <div class="form-group row">
                     <!-- Default input -->
                     <label for="inputVilleClient" class="col-sm-4 col-form-label">Ville </label>
                     <div class="col-sm-8">
-                        <input style ="color : white; background-color: #983700 ; opacity: 0.4" type="text" class="form-control rounded-pill" id="inputVilleClient" value="Ville en dur injectée par la recherche">
+                        <input type="text" class="form-control rounded-pill inputDevis" id="inputVilleClient" value="Ville en dur injectée par la recherche">
                     </div>
                 </div>
                 <div class="form-group row">
                     <!-- Default input -->
                     <label for="inputTelClient" class="col-sm-4 col-form-label">Téléphone </label>
                     <div class="col-sm-8">
-                        <input style ="color : white; background-color: #983700 ; opacity: 0.4" type="text" class="form-control rounded-pill" id="inputTelClient" value="Téléphone en dur injectée par la recherche">
+                        <input type="text" class="form-control rounded-pill inputDevis" id="inputTelClient" value="Téléphone en dur injectée par la recherche">
                     </div>
                 </div>
                 <div class="form-group row">
                     <!-- Default input -->
                     <label for="inputEmailClient" class="col-sm-4 col-form-label">Email </label>
                     <div class="col-sm-8">
-                        <input style ="color : white; background-color: #983700 ; opacity: 0.4" type="text" class="form-control rounded-pill" id="inputEmailClient" value="Email en dur injectée par la recherche">
+                        <input type="text" class="form-control rounded-pill inputDevis" id="inputEmailClient" value="Email en dur injectée par la recherche">
                     </div>
                 </div>
             </div>
@@ -167,70 +167,70 @@
 
                         <div class="form-group row">
                             <!-- Default input -->
-                            <label for="inputNomProjet" class="col-sm-2 col-form-label">Nom du projet </label>
+                            <label for="inputModalNomProjet" class="col-sm-2 col-form-label">Nom du projet </label>
                             <div class="col-sm-5">
-                                <input style ="color : white; background-color: #983700 ; opacity: 0.4" type="text" class="form-control rounded-pill" id="inputModalNomProjet" value="ProjetTest">
+                                <input type="text" class="form-control rounded-pill inputDevis" id="inputModalNomProjet" value="ProjetTest">
                             </div>
                         </div>
                         <div class="form-group row">
                             <!-- Default input -->
-                            <label for="inputRefProjet" class="col-sm-2 col-form-label">Référence du projet </label>
+                            <label for="inputModalRefProjet" class="col-sm-2 col-form-label">Référence du projet </label>
                             <div class="col-sm-5">
-                                <input style ="color : white; background-color: #983700 ; opacity: 0.4" type="text" class="form-control rounded-pill" id="inputModalRefProjet" value="Référence du projet">
+                                <input type="text" class="form-control rounded-pill inputDevis" id="inputModalRefProjet" value="Référence du projet">
                             </div>
                         </div>
                         <div class="form-group row">
                             <!-- Default input -->
-                            <label for="inputCommercial" class="col-sm-2 col-form-label">Commercial </label>
+                            <label for="inputModalCommercial" class="col-sm-2 col-form-label">Commercial </label>
                             <div class="col-sm-5">
-                                <input style ="color : white; background-color: #983700 ; opacity: 0.4" type="text" class="form-control rounded-pill" id="inputModalCommercial" value="Le nom sera déjà rempli">
+                                <input type="text" class="form-control rounded-pill inputDevis" id="inputModalCommercial" value="Le nom sera déjà rempli">
                             </div>
                         </div>
                         <div class="form-group row">
                             <!-- Default input -->
-                            <label for="inputNomClient" class="col-sm-2 col-form-label">Nom </label>
+                            <label for="inputModalNomClient" class="col-sm-2 col-form-label">Nom </label>
                             <div class="col-sm-4">
-                                <input style ="color : white; background-color: #983700 ; opacity: 0.4" type="text" class="form-control rounded-pill" id="inputModalNomClient" value="Nom en dur injecté par la recherche">
+                                <input type="text" class="form-control rounded-pill inputDevis" id="inputModalNomClient" value="Nom en dur injecté par la recherche">
                             </div>
 
                             <!-- Default input -->
-                            <label for="inputPrenomClient" class="col-sm-2 col-form-label">Prénom </label>
+                            <label for="inputModalPrenomClient" class="col-sm-2 col-form-label">Prénom </label>
                             <div class="col-sm-4">
-                                <input style ="color : white; background-color: #983700 ; opacity: 0.4" type="text" class="form-control rounded-pill" id="inputModalPrenomClient" value="Prénom en dur injecté par la recherche">
+                                <input type="text" class="form-control rounded-pill inputDevis" id="inputModalPrenomClient" value="Prénom en dur injecté par la recherche">
                             </div>
                         </div>
                         <div class="form-group row">
                             <!-- Default input -->
-                            <label for="inputAdresseClient" class="col-sm-2 col-form-label">Adresse </label>
+                            <label for="inputModalAdresseClient" class="col-sm-2 col-form-label">Adresse </label>
                             <div class="col-sm-10">
-                                <input style ="color : white; background-color: #983700 ; opacity: 0.4" type="text" class="form-control rounded-pill" id="inputModalAdresseClient" value="Adresse en dur injectée par la recherche">
+                                <input type="text" class="form-control rounded-pill inputDevis" id="inputModalAdresseClient" value="Adresse en dur injectée par la recherche">
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <!-- Default input -->
-                            <label for="inputNomClient" class="col-sm-2 col-form-label">Code postal </label>
+                            <label for="inputModalCPClient" class="col-sm-2 col-form-label">Code postal </label>
                             <div class="col-sm-4">
-                                <input style ="color : white; background-color: #983700 ; opacity: 0.4" type="text" class="form-control rounded-pill" id="inputModalCPClient" value="Nom en dur injecté par la recherche">
+                                <input type="text" class="form-control rounded-pill inputDevis" id="inputModalCPClient" value="Nom en dur injecté par la recherche">
                             </div>
                             <!-- Default input -->
-                            <label for="inputPrenomClient" class="col-sm-2 col-form-label">Ville </label>
+                            <label for="inputModalVilleClient" class="col-sm-2 col-form-label">Ville </label>
                             <div class="col-sm-4">
-                                <input style ="color : white; background-color: #983700 ; opacity: 0.4" type="text" class="form-control rounded-pill" id="inputModalVilleClient" value="Prénom en dur injecté par la recherche">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <!-- Default input -->
-                            <label for="inputTelClient" class="col-sm-2 col-form-label">Téléphone </label>
-                            <div class="col-sm-4">
-                                <input style ="color : white; background-color: #983700 ; opacity: 0.4" type="text" class="form-control rounded-pill" id="inputModalTelClient" value="Téléphone en dur injectée par la recherche">
+                                <input type="text" class="form-control rounded-pill inputDevis" id="inputModalVilleClient" value="Prénom en dur injecté par la recherche">
                             </div>
                         </div>
                         <div class="form-group row">
                             <!-- Default input -->
-                            <label for="inputEmailClient" class="col-sm-2 col-form-label">Email </label>
+                            <label for="inputModalTelClient" class="col-sm-2 col-form-label">Téléphone </label>
                             <div class="col-sm-4">
-                                <input style ="color : white; background-color: #983700 ; opacity: 0.4" type="text" class="form-control rounded-pill" id="inputModalEmailClient" value="Email en dur injectée par la recherche">
+                                <input type="text" class="form-control rounded-pill inputDevis" id="inputModalTelClient" value="Téléphone en dur injectée par la recherche">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <!-- Default input -->
+                            <label for="inputModalEmailClient" class="col-sm-2 col-form-label">Email </label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control rounded-pill inputDevis" id="inputModalEmailClient" value="Email en dur injectée par la recherche">
                             </div>
                         </div>
                         <style>
@@ -257,7 +257,7 @@
                             <tbody>
                             <tr>
                                 <td>
-                                    <select id="couvertureFamille">
+                                    <select id="couvertureFamilleModal">
                                         <option value="0">Sélectionnez</option>
                                         <option value="1">Audi</option>
                                         <option value="2">BMW</option>
@@ -268,7 +268,7 @@
                                     </select>
                                 </td>
                                 <td>
-                                    <select id="couvertureComposant">
+                                    <select id="couvertureComposantModal">
                                         <option value="0">Sélectionnez</option>
                                         <option value="1">Audi</option>
                                         <option value="2">BMW</option>
