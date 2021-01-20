@@ -1,19 +1,13 @@
 package com.example.emodule.controller;
 
-import com.example.emodule.model.Chantier;
-import com.example.emodule.model.Client;
-import com.example.emodule.model.FamilleComposant;
+import com.example.emodule.model.*;
 import com.example.emodule.model.Module;
-import com.example.emodule.service.IChantierService;
-import com.example.emodule.service.IClientService;
-import com.example.emodule.service.IFamilleComposantService;
-import com.example.emodule.service.IModuleService;
+import com.example.emodule.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,21 +24,47 @@ public class DevisController {
     @Autowired
     private IModuleService moduleService;
 
+    @Autowired
+    private IComposantService composantService;
 
     @RequestMapping( value = {"/creerDevis"}, method = RequestMethod.GET )
     public String creerDevis( Model model) throws Exception {
-      // System.out.println("ID MODULE " + id_module);
-        List<FamilleComposant> familleComposants = familleComposantService.getListFamilleComposantCouverture(1);
+
+        List<FamilleComposant> familleComposants = familleComposantService.getListFamilleComposant();
         model.addAttribute("familleComposants", familleComposants);
 
         List<Module> moduleList = moduleService.findAll();
         model.addAttribute("modules", moduleList);
-        System.out.println("MODULES : " + moduleList.size());
 
-       /* for (int i = 0; i < familleComposants.size(); i++){
-            System.out.println(familleComposants.get(i).getNom_famille_composant());
-        }*/
+       for (int i = 0; i < familleComposants.size(); i++){
+            System.out.println("Famille composant : "+familleComposants.get(i).getNom_famille_composant());
+
+            List<Module> m = familleComposants.get(i).getModules();
+
+            for (int a = 0; a < m.size(); a++){
+                System.out.println(familleComposants.get(i).relationModule(m.get(a).getId_module()));
+                System.out.println("Module relié a la famille : "+m.get(a).getNature_module());
+            }
+           System.out.println(" ");
+       }
+
         return "creerDevis";
+    }
+
+
+    //recupere la liste des composants selon la famille de composant choisi
+    @RequestMapping(value = "/composants", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Composant> getRegions(@RequestParam Integer id_famille_composant) {
+
+        System.out.println(id_famille_composant);
+        List<Composant> composants = composantService.getListComposants(id_famille_composant);
+
+        for (int i = 0; i < composants.size(); i++){
+            System.out.println("Composant : "+ composants.get(i).getNature_composant());
+        }
+
+        return composants;
     }
 
     //Récupérer la liste des devis

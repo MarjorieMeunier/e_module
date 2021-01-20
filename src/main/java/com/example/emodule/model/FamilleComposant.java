@@ -1,5 +1,7 @@
 package com.example.emodule.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -16,6 +18,7 @@ public class FamilleComposant implements Serializable{
     @Column(name="nom_famille_composant")
     private String nom_famille_composant;
 
+    @JsonIgnore
     @ManyToMany(cascade = { CascadeType.ALL })
     @JoinTable(
             name = "famille_composant_module",
@@ -42,6 +45,17 @@ public class FamilleComposant implements Serializable{
 
     public List<Module> getModules() {
         return modules;
+    }
+
+    public boolean relationModule(Integer id){
+
+        for (int i = 0; i < modules.size(); i++){
+            if (modules.get(i).getId_module().intValue() == id.intValue()){
+                return true;
+            }
+        }
+
+        return false;
     }
 
     public void setModules(List<Module> modules) {

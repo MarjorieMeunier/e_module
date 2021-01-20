@@ -102,6 +102,9 @@
         }
     </style>
     <hr>
+
+
+
     <div th:each ="module : ${modules}">
     <h3 th:utext="'Module : '+${module.nature_module}"></h3>
     <table style ="border: 1px solid black; border-collapse: collapse;" class="table table-hover">
@@ -118,31 +121,31 @@
 
         <tr>
             <td>
-                <select id="couvertureFamille">
+                <select th:id="'selectFamille' + ${module.id_module}" th:attr="data-module=${module.id_module}"
+                        onchange="chargerListeComposant(this);">
                     <option value="">Sélectionnez</option>
-                    <option th:each="familleComposant : ${familleComposants}" th:value="${familleComposant.id_famille_composant}" th:text="${familleComposant.nom_famille_composant}"></option>
+                    <option th:each="familleComposant : ${familleComposants}"
+                            th:if="${familleComposant.relationModule(module.id_module)}"
+                            th:value="${familleComposant.id_famille_composant}"
+                            th:text="${familleComposant.nom_famille_composant}"
+                            ></option>
                 </select>
 
             </td>
             <td>
-                <select id="couvertureComposant">
-                    <option value="0">Sélectionnez</option>
-                    <option value="1">Audi</option>
-                    <option value="2">BMW</option>
-                    <option value="3">Citroen</option>
-                    <option value="4">Ford</option>
-                    <option value="5">Honda</option>
-                    <option value="6">Jaguar</option>
+                <select th:id="'selectComposant' + ${module.id_module}">
+                    <option value="">Sélectionnez</option>
                 </select>
             </td>
             <td>
-                <input type="number" min="1">
+                <input type="number" min="1" value="0" th:id="'nombreUnite' + ${module.id_module}" onchange="majPrixTotal(this);"
+                       data-prix="0" th:attr="data-module=${module.id_module}">
             </td>
             <td>
-                <input type="number" id="prixUnitaire" min="0" value="0" disabled>
+                <input type="number" th:id="'prixUnitaire' + ${module.id_module}" min="0" value="0" disabled>
             </td>
             <td>
-                <input type="number" id="prixTotal" min="0" value="0" disabled>
+                <input type="number" th:id="'prixTotal' + ${module.id_module}" min="0" value="0" disabled>
             </td>
         </tr>
         </tbody>

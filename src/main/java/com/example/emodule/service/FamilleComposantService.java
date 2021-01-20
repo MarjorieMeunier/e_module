@@ -16,7 +16,7 @@ public class FamilleComposantService implements IFamilleComposantService{
     private FamilleComposantRepository repository;
 
     @Override
-    public List<FamilleComposant> getListFamilleComposantCouverture(Integer id_module) {
-        return (List<FamilleComposant>) repository.getListFamilleComposantCouverture(id_module);
+    public List<FamilleComposant> getListFamilleComposant() {
+        return (List<FamilleComposant>) repository.getListFamilleComposant();
     }
 }
