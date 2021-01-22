@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="www.thymeleaf.org">
-<head th:insert="header.html :: head">
+<head th:replace="header.html :: head">
     <script type="text/javascript" th:src="@{/js/jquery.min.js}" />
 </head>
 <body>
@@ -42,3 +42,4 @@
         </ul>
     </div>
 </nav>
+</body>

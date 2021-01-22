@@ -6,6 +6,12 @@
 </head>
 <body style="background-color: #FFF9CA;">
 <div th:insert="navbar.html"></div>
+<style>
+    .navbar
+    {
+        background-color: #f2ad3f !important;
+    }
+</style>
     <div class="container-fluid">
         <h1 class="text-center mt-4">Liste des paiements</h1>
         <hr>
@@ -90,35 +96,4 @@
         </div>
     </div>
 </body>
-<script>
-    $(document).ready(function() {
-        $('#example').DataTable();
-
-    } );
-    // Search in dataTable
-    var table = $('#example').DataTable();
-    table.columns( '.select-filter' ).every( function () {
-        var that = this;
-
-        // Create the select list and search operation
-        var select = $('<select />')
-            .appendTo(
-                this.footer()
-            )
-            .on( 'change', function () {
-                that
-                    .search( $(this).val() )
-                    .draw();
-            } );
-
-        // Get the search data for the first column and add to the select list
-        this
-            .cache( 'search' )
-            .sort()
-            .unique()
-            .each( function ( d ) {
-                select.append( $('<option value="'+d+'">'+d+'</option>') );
-            } );
-    } );
-</script>
 </html>
