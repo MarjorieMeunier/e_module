@@ -17,5 +17,7 @@ public interface ClientRepository extends CrudRepository<Client, Integer> {
     @Query("select c from Client c where c.flag = 0")
     public List<Client> getListClientNotDelete();
 
-
+    @Transactional()
+    @Query("select c from Client c where c.flag = 0 and concat(c.nom_client,' ',c.prenom_client) like %:nomPrenom% OR concat(c.prenom_client,' ',c.nom_client) LIKE %:nomPrenom%")
+    public List<Client> getListClientNotDeleteWithNomPrenom(String nomPrenom);
 }

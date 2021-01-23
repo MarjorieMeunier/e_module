@@ -31,7 +31,9 @@
             <label for="inputRechercherClient" class="col-sm-2 col-form-label"></label>
             <div class="col-sm-5">
                 <span>Client existant ? Recherchez votre client sinon </span><a th:href="@{/creerClient}" >Créer un client</a>
-                <input type="text" class="form-control rounded-pill" id="inputRechercherClient" placeholder="La recherche en ajax">
+                <input type="text" class="form-control rounded-pill" id="inputRechercherClient" placeholder="nom prenom" list="listeClients">
+                <datalist id="listeClients">
+                </datalist>
             </div>
         </div>
         <div class="form-group row">

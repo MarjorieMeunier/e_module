@@ -32,7 +32,7 @@ function majPrixTotal(e){
     var id_module = $(e).attr("data-module");
     var unite = $("#nombreUnite"+id_module).val();
 
-    $("#prixTotal"+id_module).val(prix*unite);
+    $("#prixTotal"+id_module).val((prix*unite).toFixed(2));
 }
 
 function majPrixComposant(e){
@@ -47,3 +47,25 @@ function majPrixComposant(e){
     $("#nombreUnite"+id_module).attr("data-prix", prix);
     $("#prixTotal"+id_module).val(prix);
 }
+
+$("#inputRechercherClient").on('input',function(e){
+    console.log($(this).val());
+
+    var nomPrenom = $(this).val();
+
+    $.get("/e_module/clientNomPrenom?nomPrenom=" + nomPrenom, function (data){
+
+        console.log(data);
+        var option = "";
+        $("#listeClients").html("");
+        data.forEach(function (item, i){
+            console.log(item);
+            option = "<option value='"+item["id_client"]+"'>"+item["nom_client"]+" "+item["prenom_client"]+"</option>"
+            $("#listeClients").append(option);
+        });
+    });
+
+    inputval = $('#inputRechercherClient').val();
+
+    console.log("val : "+inputval);
+});

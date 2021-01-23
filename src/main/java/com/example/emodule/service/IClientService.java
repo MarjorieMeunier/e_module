@@ -12,4 +12,8 @@ public interface IClientService {
     Optional<Client> findById(Integer id);
 
     List<Client> getListClientNotDelete();
+
+    List<Client> getListClientNotDeleteWithNomPrenom(String nomPrenom);
+
+
 }

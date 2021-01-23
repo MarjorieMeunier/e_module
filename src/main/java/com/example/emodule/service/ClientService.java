@@ -22,11 +22,16 @@ public class ClientService implements IClientService{
     }
 
     public Optional<Client> findById(Integer idClient){
+
         return repository.findById(idClient);
     }
 
     public List<Client> getListClientNotDelete(){
         return repository.getListClientNotDelete();
+    }
+
+    public List<Client> getListClientNotDeleteWithNomPrenom(String nomPrenom){
+        return repository.getListClientNotDeleteWithNomPrenom(nomPrenom);
     }
 
 }

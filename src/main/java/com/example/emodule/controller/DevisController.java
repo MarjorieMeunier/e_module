@@ -27,6 +27,9 @@ public class DevisController {
     @Autowired
     private IComposantService composantService;
 
+    @Autowired
+    private IClientService clientService;
+
     @RequestMapping( value = {"/creerDevis"}, method = RequestMethod.GET )
     public String creerDevis( Model model) throws Exception {
 
@@ -66,6 +69,22 @@ public class DevisController {
 
         return composants;
     }
+
+    //recupere la liste des composants selon la famille de composant choisi
+    @RequestMapping(value = "/clientNomPrenom", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Client> getListeClient(@RequestParam String nomPrenom) {
+
+        System.out.println(nomPrenom);
+        List<Client> clients = clientService.getListClientNotDeleteWithNomPrenom(nomPrenom);
+
+        for (int i = 0; i < clients.size(); i++){
+            System.out.println("client : "+ clients.get(i).getNom_client() +" "+clients.get(i).getPrenom_client());
+        }
+
+        return clients;
+    }
+
 
     //Récupérer la liste des devis
     @RequestMapping(value = {"/listeDevis"}, method = RequestMethod.GET)
