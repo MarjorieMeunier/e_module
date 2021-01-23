@@ -10,6 +10,12 @@
     border-radius: 20px;
 }
 
+.inputDevis:disabled {
+    color : white;
+    background-color: #983700 ;
+    opacity: 0.4;
+}
+
 .inputDevis {
     color : white;
     background-color: #983700 ;

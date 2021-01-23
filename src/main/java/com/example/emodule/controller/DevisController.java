@@ -85,6 +85,20 @@ public class DevisController {
         return clients;
     }
 
+    //recupere la liste des composants selon la famille de composant choisi
+    @RequestMapping(value = "/clientFromId", method = RequestMethod.GET)
+    @ResponseBody
+    public Optional<Client> getClient(@RequestParam Integer id_client) {
+
+        System.out.println(id_client);
+        Optional<Client> client = clientService.findById(id_client);
+
+        System.out.println("client from id : "+ client.get().getPrenom_client() +" "+client.get().getNom_client());
+
+        return client;
+    }
+
+
 
     //Récupérer la liste des devis
     @RequestMapping(value = {"/listeDevis"}, method = RequestMethod.GET)

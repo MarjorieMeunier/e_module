@@ -60,12 +60,30 @@ $("#inputRechercherClient").on('input',function(e){
         $("#listeClients").html("");
         data.forEach(function (item, i){
             console.log(item);
-            option = "<option value='"+item["id_client"]+"'>"+item["nom_client"]+" "+item["prenom_client"]+"</option>"
+            option = "<option value='"+item["id_client"]+"' label='"+item["nom_client"]+" "+item["prenom_client"]+"'>"+item["nom_client"]+" "+item["prenom_client"]+"</option>"
             $("#listeClients").append(option);
         });
     });
 
     inputval = $('#inputRechercherClient').val();
 
-    console.log("val : "+inputval);
+    if (!isNaN(inputval)) {
+        console.log("val : "+inputval);
+
+        $.get("/e_module/clientFromId?id_client=" + inputval, function (data){
+
+            console.log(data);
+
+            $("#inputNomClient").val(data["nom_client"]);
+            $("#inputPrenomClient").val(data["prenom_client"]);
+            $("#inputAdresseClient").val(data["adresse_client"]);
+            $("#inputCPClient").val(data["cp_client"]);
+            $("#inputVilleClient").val(data["ville_client"]);
+            $("#inputTelClient").val(data["telephone_client"]);
+            $("#inputEmailClient").val(data["mail_client"]);
+
+        });
+
+    } else {
+    }
 });
