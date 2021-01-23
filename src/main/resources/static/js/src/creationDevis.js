@@ -82,8 +82,23 @@ $("#inputRechercherClient").on('input',function(e){
             $("#inputTelClient").val(data["telephone_client"]);
             $("#inputEmailClient").val(data["mail_client"]);
 
+            creerRefDevis();
         });
 
     } else {
     }
 });
+
+function creerRefDevis(){
+    var nomProjet = $("#inputNomProjet").val();
+    var nomClient = $("#inputNomClient").val();
+
+    var today = new Date();
+    var date = today.getFullYear()+''+(today.getMonth()+1)+''+today.getDate()+''+today.getHours();
+
+    var ref = nomProjet+""+nomClient+""+date;
+
+    $("#inputRefProjet").val(ref);
+}
+
+
