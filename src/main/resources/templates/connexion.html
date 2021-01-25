@@ -1,15 +1,30 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html xmlns:th="www.thymeleaf.org">
 <head>
     <title>Connexion</title>
+
 </head>
 <div th:insert="header.html"></div>
+<style>
 
-<body style="background-image:url(../static/img/maison_bois.jpg);">
-<h1> test</h1>
+</style>
+<body style="background-color: #D5DDE3">
 
 
-
+<div class="login_div">
+    <form action="#" class="login_form justify-content-center" method="post">
+        <div class="form-group">
+            <label style ="color:#52b0ef" for="login">Identifiant</label>
+            <input type="text" class="form-control rounded-pill" placeholder="votre email" id="login" required>
+        </div>
+        <div class="form-group">
+            <label style ="color:#52b0ef" for="pass">Mot de passe</label>
+            <input type="password"  class="form-control rounded-pill" id="pass" required>
+        </div>
+        <div class="text-center">
+            <span style="font-size : 12px ;font-style: italic">Mot de passe oublié? Veuillez contacter l'AD</span>
+        </div>
+    </form>
+</div>
 </body>
-
 </html>
