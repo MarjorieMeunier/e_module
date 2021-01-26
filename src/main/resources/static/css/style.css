@@ -44,3 +44,16 @@
     margin: 0;
     padding: 0;
 }
+
+.toto {
+    max-width: 100%;
+    height: auto;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+}
+
+div.image {
+    content:url(../img/logo_e_module.png);
+}
