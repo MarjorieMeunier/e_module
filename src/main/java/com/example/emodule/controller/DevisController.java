@@ -4,12 +4,15 @@ import com.example.emodule.model.*;
 import com.example.emodule.model.Module;
 import com.example.emodule.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-import java.util.Optional;
+import javax.servlet.http.HttpServletRequest;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 @Controller
 public class DevisController {
@@ -29,6 +32,9 @@ public class DevisController {
 
     @Autowired
     private IClientService clientService;
+
+    @Autowired
+    private IUtilisateurService utiliseateurService;
 
     @RequestMapping( value = {"/creerDevis"}, method = RequestMethod.GET )
     public String creerDevis( Model model) throws Exception {
@@ -154,4 +160,72 @@ public class DevisController {
 
         return "redirect:/listeDevis";
     }
+
+    @RequestMapping(value = "/sauvegarderClient",method = RequestMethod.POST)
+    @ResponseBody
+    public void sauvegarderClient(HttpServletRequest request){
+
+        System.out.println("ref_chantier :"+request.getParameter("ref_chantier"));
+        System.out.println("nom_chantier :"+request.getParameter("nom_chantier"));
+        System.out.println("id_utilisateur :"+request.getParameter("id_utilisateur"));
+        System.out.println("id_client :"+request.getParameter("id_client"));
+
+        Enumeration<String> params = request.getParameterNames();
+        while(params.hasMoreElements()){
+            String name = params.nextElement();
+            String value = request.getParameter(name);
+
+            System.out.println("::Request Params:: " + name + " = " + value);   //prints ::Request Params:: mykey = test value
+        }
+
+        String ref_chantier = request.getParameter("ref_chantier");
+        String nom_chantier = request.getParameter("nom_chantier");
+        //Integer id_utilisateur = Integer.parseInt(request.getParameter("id_utilisateur"));
+        Integer id_client = Integer.parseInt(request.getParameter("id_client"));
+
+        //on creer la date dans le bon format de mysql
+        Date now = new Date();
+        String pattern = "yyyy-MM-dd";
+        SimpleDateFormat formatter = new SimpleDateFormat(pattern);
+        String mysqlDateString = formatter.format(now);
+
+        Optional<Client> client = clientService.findById(id_client);
+        Optional<Utilisateur> utilisateur = utiliseateurService.findById(1);
+
+    /*
+        Gamme gamme = new Gamme();
+        gamme.setLibelle_gamme();
+
+        Modele modele = new Modele();
+        modele.setFinition();
+        modele.setGamme();
+        modele.setModules();
+        modele.setLibelle_modele();
+
+        Module module = new module();
+
+        FamilleComposant familleComposant = new FamilleComposant();
+
+        Composant composant = new Composant();
+
+        Fournisseur fournisseur = new Fournisseur();
+
+        Chantier chantier = new Chantier();
+        chantier.setDate_chantier();
+        chantier.setNom_chantier();
+        chantier.setFlag();
+        chantier.setEtat();
+        chantier.setGamme();
+        chantier.setClients();
+        chantier.setPaiement();
+        chantier.setUtilisateur();
+
+
+
+
+     */
+    }
+
+
+
 }

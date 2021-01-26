@@ -101,4 +101,35 @@ function creerRefDevis(){
     $("#inputRefProjet").val(ref);
 }
 
+function sauvegarderDevis(){
+
+    var ref_chantier = $("#inputNomProjet").val();
+    var nom_chantier = $("#inputRefProjet").val();
+    var date_chantier = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
+    var id_utilisateur = $("#inputCommercial").val();
+    var id_client = $("#inputRechercherClient").val();
+    //var id_gamme = $("#");
+
+    var paramList={
+        ref_chantier:ref_chantier,
+        nom_chantier:nom_chantier,
+        id_utilisateur:id_utilisateur,
+        id_client:id_client
+    };
+
+    var json = JSON.stringify(paramList);
+
+    $.ajax({
+        url: "/e_module/sauvegarderClient",
+        data: json,
+        cache: false,
+        processData: false,
+        type: 'POST',
+        dataType:'json',
+        success: function (dataofconfirm) {
+            // do something with the result
+        }
+    });
+}
+
 
