@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <title>Liste des paiements</title>
 </head>
-<body style="background-color: #FFF9CA;">
+<body style="background-color: #93813d2e ;">
 <div th:insert="navbar.html"></div>
 <style>
     .navbar
     {
-        background-color: #f2ad3f !important;
+        background-color: #93813d !important;
     }
 </style>
     <div class="container-fluid">
@@ -18,13 +18,13 @@
         <div class="table-responsive">
         <table id="example" class="table table-striped table-bordered display" style="width:100%">
             <thead>
-            <tr style="background-color: #CABB3F">
+            <tr style="background-color: #93813d70 ">
                 <th colspan="4">Projet / Devis</th>
                 <th colspan="4">Client</th>
                 <th rowspan="2">Plus d'information</th>
 
             </tr>
-            <tr style="background-color: #FFE300">
+            <tr style="background-color: #ffd73fc2 ">
                 <th>N°</th>
                 <th>Référence du projet</th>
                 <th>Date du projet</th>
@@ -46,7 +46,7 @@
                 <td><div th:each = " client : ${c.clients}" ><span th:utext="'Client : ' + ${client.mail_client} +' '+ ${client.prenom_client}"></span></div></td>
                 <td><div th:each = " client : ${c.clients}" ><span th:utext="'Client : ' + ${client.telephone_client}"></span></div></td>
                 <td>
-                    <button title ="Détail du paiement" class="btn mt-2 rounded-pill" style="background-color: #CABB3F; color: white;" data-toggle="modal" th:attr="data-target='#modalPaiement'+${c.id_chantier}">
+                    <button title ="Détail du paiement" class="btn mt-2 rounded-pill" style="background-color: #93813d; color: white;" data-toggle="modal" th:attr="data-target='#modalPaiement'+${c.id_chantier}">
                     <i class="fas fa-info-circle"></i>
                 </button>
 
